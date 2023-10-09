@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Para você</title>
+    <link rel="stylesheet" type="text/css" href="style.css"> 
+    <style> 
+    
+body {
+    font-family: 'Verdana', sans-serif;
+    background-color: #c6f1ff; 
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    text-align: center;
+    margin-top: 100px;
+}
+
+h1 {
+    color: #000000;
+    font-size: 32px; 
+}
+
+p {
+    color: #555; 
+    font-size: 18px; 
+}
+
+input {
+    padding: 10px;
+    border: 2px solid #ddd; 
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    padding: 15px 30px;
+    background-color: #63b8ce;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    background-color: #63b8ce;
+}
+
+
+.imagem-centralizada img {
+    max-width: 100%; 
+    height: auto; 
+}
+
+.imagem-container {
+    max-width: 100%; 
+    margin: 0 auto; 
+    text-align: center;
+    display: none; 
+    position: relative; 
+}
+
+
+.imagem-centralizada button {
+    position: absolute; 
+    top: 100%; 
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    display: block; 
+    margin-top: 10px; 
+}
+ 
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Desafio</h1>
+        <p>Adivinhe a data para desbloquear:</p>
+        <input type="text" id="dataInput" placeholder="DD/MM/AAAA">
+        <button onclick="verificarData()">Verificar</button>
+        <div id="resultado"></div>
+
+        <div id="imagemAcerto" class="imagem-container" style="display: none;">
+            <div class="imagem-centralizada">
+                <img src="feliz.jpg" alt="Acerto">
+                
+                <button id="botaoMomentos" onclick="irParaMomentos()" style="display: none;">Ir para os Momentos</button>
+            </div>
+        </div>
+        
+        
+        <div id="imagemErro" class="imagem-container" style="display: none;">
+            <div class="imagem-centralizada">
+                <img src="gatotriste.jpg" alt="Erro">
+                
+                <button id="botaoMomentos" onclick="irParaMomentos()" style="display: none;">Ir para os Momentos</button>
+            </div>
+        </div>
+
+    
+    <audio id="backgroundMusic" loop>
+        <source src="jorge e mateus.mp3" type="audio/mpeg">
+        Seu navegador não suporta a reprodução de áudio.
+    </audio>
+    <audio id="musicaTriste" loop>
+        <source src="vcerrou.mp3" type="audio/mpeg">
+        Seu navegador não suporta a reprodução de áudio.
+    </audio>
+
+    <script>
+        function verificarData() {
+            var dataCorreta = "29/03/2023"; 
+            var dataInput = document.getElementById('dataInput').value;
+
+            
+            var backgroundMusic = document.getElementById('backgroundMusic');
+            var musicaTriste = document.getElementById('musicaTriste');
+            var imagemAcerto = document.getElementById('imagemAcerto');
+            var imagemErro = document.getElementById('imagemErro');
+            var botaoMomentos = document.getElementById('botaoMomentos');
+            var resultado = document.getElementById('resultado');
+
+            
+            if (dataInput === dataCorreta) {
+               
+                imagemAcerto.style.display = 'block';
+                imagemErro.style.display = 'none'; 
+                resultado.innerHTML = "Data correta!";
+                botaoMomentos.style.display = 'block'; 
+                if (!musicaTriste.paused) {
+                    musicaTriste.pause();
+                }
+               
+                if (backgroundMusic.paused) {
+                    backgroundMusic.play();
+                }
+            } else {
+                
+                imagemErro.style.display = 'block';
+                imagemAcerto.style.display = 'none'; 
+                resultado.innerHTML = "Data incorreta. Tente novamente.";
+                
+                if (!backgroundMusic.paused) {
+                    backgroundMusic.pause();
+                }
+                
+                if (musicaTriste.paused) {
+                    musicaTriste.play();
+                }
+            }
+        }
+
+        function irParaMomentos() {
+            
+            window.location.href = "momentos.html";
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+

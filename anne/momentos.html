@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para você</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-color: #c6f1ff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            color: #4199af;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .botao {
+            background-color: #84d7ef;
+            color: #fff;
+            padding: 12px 24px;
+            font-size: 18px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            margin: 10px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .botao:hover {
+            background-color: #000000;
+        }
+
+        /* Estilo do botão "Clique aqui" alinhado à esquerda */
+        #botaoTexto {
+            float: left;
+        }
+
+        /* Estilo do botão "Mostrar Fotos" alinhado à direita */
+        #botaoFotos {
+            float: right;
+        }
+
+        /* Estilo do elemento <audio> centralizado */
+        #musica-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        #musica {
+            max-width: 100%;
+            width: 300px;
+        }
+
+        #textoEscondido {
+            display: none;
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        #fotos {
+            display: none;
+            max-width: 100%;
+            margin-top: 20px;
+        }
+
+        #fotos img {
+            max-width: 100%;
+            margin: 10px;
+            border-radius: 15px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Meu Amor</h1>
+        
+        <!-- Botão para tocar música -->
+        <div id="musica-container">
+            <audio id="musica" src="jorge e mateus.mp3" controls></audio>
+        </div>
+
+        <!-- Botão para mostrar texto -->
+        <button class="botao" id="botaoTexto">Clique aqui para texto</button>
+        <div id="textoEscondido">
+            <p>viado, macaco, cretino, vagabundo… tu me estressa tanto, eu fico odiada e terminamos 10 vezes p voltar sempre, sabemos que é impossível viver “separados”, se um dia eu te perder, eu vou sentir tanto, e eu não quero passar por isso, eu não consigo ficar sem você meu flor de abóbora 💋
+                eu nunca vou conseguir dizer ao certo tudo o que eu sinto por você, só sei dizer que é muito, e que faria tudo por você! desde que entrou na minha vida, tudo se tornou melhor, mesmo com nossas brigas infantis, mesmo com meio mundo de coisas ridículas q você faz, eu continuo amando você 😳, tu é minha paz, tu é aquela pessoa que eu quero correr sempre quando da tudo de errado, tu é minha felicidade, tu é tudinho p mim!
+                
+                <P>sempre quando estou triste, lembro do nosso começo, e me traz uma paz, lembrar de cada momentinho que passamos, lembrar de cada risada, cada ciuminho, ou até mesmo nossas briguinhas, eu amo algumas partes do nosso começo 🤣, quero que saiba que você tem um lugar especialmente p você em meu coração, e ninguém pode competir, eu nem preciso falar muito pois você sabe que é muito especial para mim!</P>
+                
+                <p>desculpas por ser essa menina mimada, chata e difícil de se lidar, não sei como me suporta, sei mt bem que é difícil kkk, desculpas por falar merdas na hora da raiva, mas tem certas coisas que você merece escutar p ver se muda…</p>
+                
+                <P>eu te amo yatinho7</P> </p>
+        </div>
+
+        <!-- Botão para mostrar fotos -->
+        <button class="botao" id="botaoFotos">Mostrar Fotos</button>
+        <div id="fotos">
+            <img src="a.jpeg" alt="Foto 1">
+            <img src="ane.jpeg" alt="Foto 2">
+            <img src="yato.jpeg" alt="Foto 3"> 
+            <img src="b.jpeg" alt="Foto 4">
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var audio = document.getElementById("musica");
+            var botaoTexto = document.getElementById("botaoTexto");
+            var botaoFotos = document.getElementById("botaoFotos");
+            var textoEscondido = document.getElementById("textoEscondido");
+            var fotos = document.getElementById("fotos");
+
+            // Função para tocar a música
+            function playMusic() {
+                if (audio.paused) {
+                    audio.play();
+                    botaoTexto.textContent = "Pausar música";
+                } else {
+                    audio.pause();
+                    botaoTexto.textContent = "Clique aqui para texto";
+                }
+            }
+
+            // Evento de clique no botão "Clique aqui para texto" para mostrar o texto
+            botaoTexto.addEventListener("click", function() {
+                textoEscondido.style.display = "block";
+
+                // Toca a música automaticamente quando o texto é mostrado
+                if (audio.paused) {
+                    playMusic();
+                }
+            });
+
+            // Evento de clique no botão "Mostrar Fotos" para exibir as fotos
+            botaoFotos.addEventListener("click", function() {
+                fotos.style.display = "block";
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
